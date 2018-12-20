@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
                     }
                 });
 
-                Integer limit = min(bestTriesIntArray.size(), maxNumberOfItemsOnList);
+                Integer limit = Math.min(bestTriesIntArray.size(), maxNumberOfItemsOnList);
 
                 bestTriesListView.removeAllViews();
 
@@ -132,6 +132,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+        runningClock = false;
         // Wydaje się, że czegoś tutaj brakuje
         Log.d("CYKL_ZYCIA", "ONPAUSE");
     }
@@ -139,6 +140,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.v("TAG", "DUPA");
+        runningClock = false;
+        Log.d("BUTTON", "STOP" + counter);
+
         // Podobnie jak tutaj, też czegoś brakuje
         Log.d("CYKL_ZYCIA", "ONRESUME");
     }
@@ -146,6 +151,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        //runningClock = true;   nie wiem jeszcze czy to działa
         Log.d("CYKL_ZYCIA", "ONSTART");
     }
 
